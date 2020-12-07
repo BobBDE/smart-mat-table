@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {UserDataSource} from '../model/user';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'smart-mat-table';
+
+  datasource = new UserDataSource();
+
+  simpleUsersColumns: string[] = ['firstname', 'lastname', 'mail', 'job'];
+
+  simpleUsersColumns2: string[] = ['job', 'lastname', 'mail'];
+  usersColumnsWithDelete: string[] = [...this.simpleUsersColumns, 'customTemplate'];
 }

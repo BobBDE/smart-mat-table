@@ -1,0 +1,42 @@
+<mat-table mat-table [dataSource]="datasource">
+
+  <!-- Mail -->
+  <ng-container matColumnDef="mail">
+    <mat-header-cell *matHeaderCellDef>
+      <span>Mail</span>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let user">
+      <a [href]="'mailto:' + user.mail">
+        <span>{{user.mail}}</span>
+      </a>
+    </mat-cell>
+  </ng-container>
+
+  <!-- JOB -->
+  <ng-container matColumnDef="job">
+    <mat-header-cell *matHeaderCellDef>
+      <span>Job</span>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let user">
+      <span class="job">{{user.job}}</span>
+    </mat-cell>
+  </ng-container>
+
+    <!-- Dynamic columns -->
+    <ng-container *ngFor="let column of dynamicColumns" [matColumnDef]="column">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="g-table-cell">{{column}}</p>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let user">
+        <div class="g-table-cell">
+          <span>{{user[column]}}</span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+
+
+  <mat-header-row *matHeaderRowDef="_columns; sticky: true"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: _columns;"></mat-row>
+</mat-table>
+
