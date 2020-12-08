@@ -6,7 +6,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import { SimpleUsersTableComponent } from './simple-users-table/simple-users-table.component';
 import { TableWithDynamicColumnsComponent } from './table-with-dynamic-columns/table-with-dynamic-columns.component';
-import { DynamicColumnComponent } from './dynamic-column/dynamic-column.component';
 import { TableWithInjectableColumnComponent } from './table-with-injectable-column/table-with-injectable-column.component';
 import {MatButtonModule} from '@angular/material/button';
 
@@ -15,7 +14,6 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     SimpleUsersTableComponent,
     TableWithDynamicColumnsComponent,
-    DynamicColumnComponent,
     TableWithInjectableColumnComponent
   ],
   imports: [
