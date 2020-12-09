@@ -41,16 +41,24 @@ export abstract class TableAbstractDirective<T> {
    */
   public calculateDynamicColumns(): void {
     if (this._columns && this.staticColumns) {
-      const otherColumns: TableColumn<T>[] = [];
-      for (const column of this._columns) {
-        // if the column is not in the static list, add it to the dynamic list
-        if (this.staticColumns.indexOf(column) === -1) {
-          otherColumns.push(column);
-        }
-      }
-
-      this.dynamicColumns = otherColumns;
+      this.dynamicColumns = this.getDynamicColumns(this._columns, this.staticColumns);
     }
+  }
+
+  /**
+   * Retrieve dynamic columns
+   */
+  public getDynamicColumns(columns: TableColumn<T>[], staticColumns: TableColumn<T>[]): TableColumn<T>[] {
+    const dynamicColumns: TableColumn<T>[] = [];
+    // loop though the columns to display
+    for (const column of columns) {
+      // if the column is not in the static list, add it to the dynamic list
+      if (staticColumns.indexOf(column) === -1) {
+        dynamicColumns.push(column);
+      }
+    }
+
+    return dynamicColumns;
   }
 
 }

@@ -22,18 +22,15 @@
     </mat-cell>
   </ng-container>
 
-    <!-- Dynamic columns -->
-    <ng-container *ngFor="let column of dynamicColumns" [matColumnDef]="column">
-      <mat-header-cell *matHeaderCellDef>
-        <p class="g-table-cell">{{column}}</p>
-      </mat-header-cell>
-      <mat-cell *matCellDef="let user">
-        <div class="g-table-cell">
-          <span>{{user[column]}}</span>
-        </div>
-      </mat-cell>
-    </ng-container>
-
+  <!-- Dynamic columns -->
+  <ng-container *ngFor="let column of dynamicColumns" [matColumnDef]="column">
+    <mat-header-cell *matHeaderCellDef>
+      <p class="text-capitalize-first">{{column}}</p>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let user">
+      <span>{{user[column]}}</span>
+    </mat-cell>
+  </ng-container>
 
 
   <mat-header-row *matHeaderRowDef="_columns"></mat-header-row>

@@ -12,7 +12,7 @@ export class TableWithDynamicColumnsComponent extends TableAbstractDirective<Use
   constructor() {
     // only the job and mail columns are defined (to do a specific style for the job and a link to the mail),
     // the other columns are dynamically generated without any style
-    super(['job', 'mail']);
+    super(['mail', 'job']);
   }
 
   ngOnInit(): void {
